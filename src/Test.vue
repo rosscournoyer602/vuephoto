@@ -57,20 +57,20 @@
   }
 
   .component-wrapper {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      font-family: $font-main;
-      background: $main-bg;
-      padding: 4rem;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-family: $font-main;
+    background: $main-bg;
+    padding: 4rem;
+    align-items: center;
 
-      div {
-        &:not(:last-child) {
-          margin-bottom: 3rem;
-        }
+    div {
+      &:not(:last-child) {
+        margin-bottom: 3rem;
       }
+    }
   }
 
   .header {
@@ -86,23 +86,23 @@
   }
 
   .gallery {
-      background: $image-container-bg;
-      box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-      margin: 2px 15px;
-      padding: 15px;
-      padding-bottom: 10px;
-      display: inline-block;
-      break-inside: avoid;
-      column-width: 320px;
-      column-gap: 15px;
-      width: 90%;
-      max-width: 1100px;
-      margin: 20px auto;
+    background: $image-container-bg;
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    margin: 2px 15px;
+    padding: 15px;
+    padding-bottom: 10px;
+    display: inline-block;
+    break-inside: avoid;
+    column-width: 320px;
+    column-gap: 15px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
 
-      .gallery-image {
-        padding-bottom: 15px;
-        margin-bottom: 5px;
-      }
+    .gallery-image {
+      padding-bottom: 15px;
+      margin-bottom: 5px;
+    }
   }
 
 </style>
