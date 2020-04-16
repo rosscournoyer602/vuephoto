@@ -1,24 +1,25 @@
 <template>
-  <div id="demo">
-    <header>
-      Image Gallery
-      <div class="description">
+  <div class="component-wrapper">
+    <header class="header">
+      <h2 class="header-title">{{ title }}</h2>
+      <p class="header-description">
         {{ description }}
-      </div>
+      </p>
     </header>
-    <div class="container">
-     <img class="image" v-for="image of galleryPhotos" :key="image.id" :src="image" v-bind:style="{ width: width + 'px', height: height + 'px'}" />
+    <div class="gallery">
+     <img class="gallery-image" v-for="image of galleryPhotos" :key="image" :src="image" :alt="image" :style="{ width: width + 'px', height: height + 'px'}" />
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    beforeMount: function() {
+    beforeMount() {
       this.getPhotos()
     },
     data() {
       return {
+        title: 'Image Gallery',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda consectetur, debitis dignissimos fuga, harum illo nesciunt nostrum nulla quisquam rem repellat, soluta vel. Cupiditate deserunt laudantium omnis quos sit.',
         height: 500,
         width: 400,
@@ -27,13 +28,13 @@
       }
     },
     methods: {
-      getPhotos: function() {
+      getPhotos() {
         const photosToDisplay = this.numberOfPhotos;
         const photoHeight = this.height;
         const photoWidth = this.width;
         const photos = [];
         for (let i = 0; i < photosToDisplay; i++) {
-          photos.push(`https://picsum.photos/${photoWidth}/${photoHeight}?random?id=${i}`);
+          photos.push(`https://picsum.photos/${photoWidth}/${photoHeight}?random&id=${i}`);
         }
         this.photos = photos;
       }
@@ -44,7 +45,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
   $main-bg: #f3f3f3;
   $image-container-bg: #fefefe;
@@ -55,7 +56,7 @@
     font-size: 10px;
   }
 
-  #demo {
+  .component-wrapper {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -72,18 +73,19 @@
       }
   }
 
-  header {
+  .header {
+    margin: 15px;
+    .header-title {
       font-size: 3rem;
       font-weight: bold;
-      margin: 15px;
-      .description {
-        margin: 15px;
-        font-size: 1rem;
-        font-weight:300;
-      }
+    }
+    .header-description {
+      font-size: 1.5rem;
+      font-weight:300;
+    }
   }
 
-  .container {
+  .gallery {
       background: $image-container-bg;
       box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
       margin: 2px 15px;
@@ -97,7 +99,7 @@
       max-width: 1100px;
       margin: 20px auto;
 
-      .image {
+      .gallery-image {
         padding-bottom: 15px;
         margin-bottom: 5px;
       }
