@@ -16,8 +16,15 @@
 
 <script lang="ts">
   import Vue from 'vue';
-  // eslint-disable-next-line no-unused-vars
-  import { GalleryData }  from '../types';
+
+  type GalleryData = {
+    title: string;
+    description: string;
+    height: number;
+    width: number;
+    numberOfPhotos: number;
+    photoSources: string[];
+  }
 
   export default Vue.extend({
     name: 'Photos',
@@ -64,11 +71,6 @@
     background: $main-bg;
     padding: 4rem;
     max-width: 1100px;
-    div {
-      &:last-child {
-        margin-bottom: 0rem;
-      }
-    }
   }
 
   .header {    
